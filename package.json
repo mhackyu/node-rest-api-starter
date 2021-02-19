@@ -1,0 +1,53 @@
+{
+  "name": "node-rest-api-starter",
+  "version": "1.0.0",
+  "description": "Node.js REST API Starter Template",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint app.js src/. --config .eslintrc.json --fix",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
+  },
+  "keywords": [
+    "node",
+    "nodeks",
+    "rest",
+    "api",
+    "starter",
+    "template"
+  ],
+  "author": "mhackyu <mark.christian.paderes@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "knex": "^0.21.17",
+    "objection": "^2.2.14",
+    "pg": "^8.5.1",
+    "swagger-jsdoc": "^6.0.6",
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  },
+  "engines": {
+    "node": ">=12.14.0"
+  }
+}
