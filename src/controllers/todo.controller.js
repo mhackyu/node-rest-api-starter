@@ -28,9 +28,9 @@ const Todo = require('../models/todo.model');
 router.post('/', async (req, res) => {
   try {
     const todo = await Todo.query().insert(req.body);
-    res.success('CREATED', '', todo);
+    return res.success('CREATED', '', todo);
   } catch (error) {
-    res.error('OBJECTION_ERROR', error);
+    return res.error('OBJECTION_ERROR', error);
   }
 });
 
@@ -69,14 +69,14 @@ router.get('/', async (req, res) => {
       .withGraphJoined(eager)
       .page(page - 1, limit);
 
-    res.success('SUCCESS', '', {
+    return res.success('SUCCESS', '', {
       todos: todos.results,
       total: todos.total,
       page,
       limit,
     });
   } catch (error) {
-    res.error('OBJECTION_ERROR', error);
+    return res.error('OBJECTION_ERROR', error);
   }
 });
 
@@ -108,11 +108,11 @@ router.get('/:id', async (req, res) => {
 
     if (!todo) return res.error('NOT_FOUND');
 
-    res.success('SUCCESS', '', {
+    return res.success('SUCCESS', '', {
       todo,
     });
   } catch (error) {
-    res.error('OBJECTION_ERROR', error);
+    return res.error('OBJECTION_ERROR', error);
   }
 });
 
@@ -148,11 +148,11 @@ router.put('/:id', async (req, res) => {
 
     if (!todo) return res.error('NOT_FOUND');
 
-    res.success('UPDATED', '', {
+    return res.success('UPDATED', '', {
       todo,
     });
   } catch (error) {
-    res.error('OBJECTION_ERROR', error);
+    return res.error('OBJECTION_ERROR', error);
   }
 });
 
@@ -178,11 +178,11 @@ router.delete('/:id', async (req, res) => {
   try {
     const count = await Todo.query().deleteById(id);
 
-    res.success('SUCCESS', '', {
+    return res.success('SUCCESS', '', {
       count,
     });
   } catch (error) {
-    res.error('OBJECTION_ERROR', error);
+    return res.error('OBJECTION_ERROR', error);
   }
 });
 

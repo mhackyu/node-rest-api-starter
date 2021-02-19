@@ -48,15 +48,13 @@ app.use(responseMiddleware(responseTypes));
 
 const d = new Date();
 
-app.get('/', (req, res) => {
-  res.success('SUCCESS', `Healthy since ${d.toString()}`);
-});
+app.get('/', (req, res) =>
+  res.success('SUCCESS', `Healthy since ${d.toString()}`),
+);
 
 app.use('/api/v1', apiRoutes);
 
-app.use('*', (req, res) => {
-  res.error('ENDPOINT_NOT_FOUND');
-});
+app.use('*', (req, res) => res.error('ENDPOINT_NOT_FOUND'));
 
 // CORS Error handler
 app.use((err, req, res, next) => {
