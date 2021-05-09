@@ -8,6 +8,7 @@ module.exports = {
       database: db.name,
       user: db.user,
       password: db.password,
+      port: db.port,
     },
     pool: {
       min: 2,
@@ -24,6 +25,7 @@ module.exports = {
       database: db.name,
       user: db.user,
       password: db.password,
+      port: db.port,
     },
     pool: {
       min: 2,
@@ -40,6 +42,7 @@ module.exports = {
       database: db.name,
       user: db.user,
       password: db.password,
+      port: db.port,
     },
     pool: {
       min: 2,
