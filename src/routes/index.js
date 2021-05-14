@@ -34,9 +34,10 @@ const swaggerOptions = {
 const specs = swaggerJsdoc(swaggerOptions);
 const todoController = require('../controllers/todo.controller');
 
-if (!isProd) {
-  router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-}
+// TODO: Remove in prod
+// if (!isProd) {
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+// }
 
 router.use('/todos', todoController);
 
