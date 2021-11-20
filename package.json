@@ -29,7 +29,7 @@
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "knex": "^0.21.17",
-    "objection": "^2.2.14",
+    "objection": "^2.2.18",
     "pg": "^8.5.1",
     "swagger-jsdoc": "^6.0.6",
     "swagger-ui-express": "^4.1.6",
