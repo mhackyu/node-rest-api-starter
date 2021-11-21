@@ -1,16 +1,16 @@
 {
   "name": "node-rest-api-starter",
   "version": "1.0.0",
-  "description": "Node.js REST API Starter Template",
+  "description": "Node.js REST API starter template (Express and PostgreSQL)",
   "main": "app.js",
   "scripts": {
     "test": "npm test",
     "start": "node app.js",
     "dev": "nodemon app.js",
     "lint": "eslint app.js src/. --config .eslintrc.json --fix",
-    "migrate": "knex migrate:latest",
-    "rollback": "knex migrate:rollback",
-    "seed": "knex seed:run"
+    "migrate": "npx prisma migrate dev",
+    "rollback": "",
+    "seed": ""
   },
   "keywords": [
     "node",

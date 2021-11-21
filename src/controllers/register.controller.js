@@ -2,10 +2,10 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { PrismaClient } = require('@prisma/client');
 
-const prisma = new PrismaClient();
-
 const validate = require('../middlewares/validator.middleware');
 const registerValidationRules = require('../validators/register.validator');
+
+const prisma = new PrismaClient();
 
 router.post(
   '/',
