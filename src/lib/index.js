@@ -1,7 +1,7 @@
 const logger = require('./logger');
-const db = require('./database');
+const passport = require('./passport');
 
 module.exports = {
   logger,
-  db
+  passport,
 };

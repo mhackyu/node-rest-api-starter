@@ -5,7 +5,8 @@ const cors = require('cors');
 const { v4: uuid } = require('uuid');
 
 const { port, responseTypes, corsConfig } = require('./src/config');
-const { logger } = require('./src/lib');
+const { logger, passport } = require('./src/lib');
+const morganMiddleware = require('./src/middlewares/morgan.middleware');
 const responseMiddleware = require('./src/middlewares/response.middleware');
 const apiRoutes = require('./src/routes');
 
@@ -43,8 +44,14 @@ app.use(helmet());
 // Setup response compression - compress all responses
 app.use(compression());
 
+// Setup HTTP request logger middleware
+app.use(morganMiddleware());
+
 // Setup response middleware
 app.use(responseMiddleware(responseTypes));
+
+// Setup passport auth middleware
+app.use(passport.initialize());
 
 const d = new Date();
 
