@@ -2,10 +2,8 @@ const jsonwebtoken = require('jsonwebtoken');
 
 const { jwtConfig } = require('../config');
 
-const issueJWT = (user) => {
+const issueJWT = (user, expiresIn = '1d') => {
   const { id, role } = user;
-
-  const expiresIn = '1d';
 
   const payload = {
     sub: id,
