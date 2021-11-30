@@ -3,13 +3,13 @@ const jsonwebtoken = require('jsonwebtoken');
 const { jwtConfig } = require('../config');
 
 const issueJWT = (user) => {
-  const { id } = user;
+  const { id, role } = user;
 
   const expiresIn = '1d';
 
-  // TODO: Add role to payload
   const payload = {
     sub: id,
+    role,
     iat: Date.now(),
   };
 

@@ -1,11 +1,9 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { PrismaClient } = require('@prisma/client');
 
 const validate = require('../middlewares/validator.middleware');
 const registerValidationRules = require('../validators/register.validator');
-
-const prisma = new PrismaClient();
+const { prisma } = require('../lib');
 
 router.post(
   '/',
@@ -38,7 +36,6 @@ router.post(
           lastName,
         },
       });
-
 
       // TODO: send a account verification email.
       // TODO: generate a new token and save it to token field

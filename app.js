@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
 const { v4: uuid } = require('uuid');
+const useragent = require('express-useragent');
 
 const { port, responseTypes, corsConfig } = require('./src/config');
 const { logger, passport } = require('./src/lib');
@@ -52,6 +53,9 @@ app.use(responseMiddleware(responseTypes));
 
 // Setup passport auth middleware
 app.use(passport.initialize());
+
+// Setup useragent middleware
+app.use(useragent.express());
 
 const d = new Date();
 

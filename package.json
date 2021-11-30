@@ -8,6 +8,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "lint": "eslint app.js src/. --config .eslintrc.json --fix",
+    "studio": "npx prisma studio",
     "migrate": "npx prisma migrate dev",
     "rollback": "",
     "seed": ""
@@ -30,6 +31,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
+    "express-useragent": "^1.0.15",
     "express-validator": "^6.13.0",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",

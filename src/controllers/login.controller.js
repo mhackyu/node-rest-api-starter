@@ -1,21 +1,20 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { PrismaClient } = require('@prisma/client');
 
 const validate = require('../middlewares/validator.middleware');
 const loginValidationRules = require('../validators/login.validator');
 const { issueJWT } = require('../helpers/security.helper');
-
-const prisma = new PrismaClient();
+const { prisma } = require('../lib');
 
 router.post('/', [loginValidationRules.login, validate], async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check if the account is already existing
-    const user = await prisma.user.findUnique({
+    // Check if the account is already existing and enabled by default
+    const user = await prisma.user.findFirst({
       where: {
         email,
+        enabled: true,
       },
     });
 
@@ -33,7 +32,9 @@ router.post('/', [loginValidationRules.login, validate], async (req, res) => {
       const jwt = issueJWT(user);
       delete user.password;
 
-      return res.success('SUCCESS', '', { user, auth: jwt });
+      const { useragent } = req;
+
+      return res.success('SUCCESS', '', { user, auth: jwt, useragent });
     }
 
     return res.error('UNAUTHORIZED', {

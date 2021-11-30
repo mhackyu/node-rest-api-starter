@@ -52,12 +52,4 @@ const strategy = new JwtStrategy(options, async (payload, done) => {
 
 passport.use(strategy);
 
-// passport.serializeUser((user, done) => {
-//   done(null, user);
-// });
-
-// passport.deserializeUser((user, done) => {
-//   done(null, user);
-// });
-
 module.exports = passport;
