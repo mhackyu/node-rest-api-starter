@@ -32,7 +32,7 @@
     "objection": "^2.2.18",
     "pg": "^8.5.1",
     "swagger-jsdoc": "^6.0.6",
-    "swagger-ui-express": "^4.1.6",
+    "swagger-ui-express": "^4.3.0",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"
   },
