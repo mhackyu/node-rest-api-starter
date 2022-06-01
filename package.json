@@ -9,8 +9,10 @@
     "dev": "nodemon app.js",
     "lint": "eslint app.js src/. --config .eslintrc.json --fix",
     "migrate": "knex migrate:latest",
+    "migrate:make": "knex migrate:make",
     "rollback": "knex migrate:rollback",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    "seed:make": "knex seed:make"
   },
   "keywords": [
     "node",
